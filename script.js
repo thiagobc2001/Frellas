@@ -29,38 +29,34 @@ const stepData = {
         ]
     },
     step3: {
-        title: "🔄 Etapa 3: Desenvolvimento - Em andamento",
-        sections: [
-            {
-                title: "Concluído",
+    title: "✅ Etapa 3: Desenvolvimento - Concluído",
+    sections: [
+        {
+            title: "Tarefas Concluídas",
+            items: [
+                { text: "17/06/2025 - Duplicação do Zap no Zapier para testes sem afetar o ambiente produtivo", completed: true },
+                { text: "17/06/2025 - Duplicação da planilha, renomeada para 'Clients_Follow_UP_MIB' com aba 'ALLDATA'", completed: true },
+                { text: "17/06/2025 - Atualização de fluxos no Zapier para os novos nomes", completed: true },
+                { text: "17/06/2025 - Testes validados para envios de e-mails nas abas 'Client VIP' e 'Black List'", completed: true },
+                { text: "17/06/2025 - Configuração do Zapier finalizada", completed: true },
+                { text: "19/06/2025 -Validar a origem do Webhook no Zapier (confirmado)", completed: true },
+                { text: "19/06/2025 - Confirmar o papel do AppSheet (painel validado)", completed: true },
+                { text: "19/06/2025 - Realizar acesso ao AppSheet (acesso concluído)", completed: true },
+                { text: "19/06/2025 - Implementar ajustes finais no fluxo", completed: true },
+                { text: "19/06/2025 - Documentar o fluxo completo para o cliente", completed: true }
+            ]
+        }
+    ]
+},
+
+step4: {
+    title: "✅ Etapa 4: Testes - Concluído",
+    sections: [
+        {
+            title: "Tarefas Concluídas",
                 items: [
-                    { text: "17/06/2025 - Duplicação do Zap no Zapier para testes sem afetar o ambiente produtivo", completed: true },
-                    { text: "17/06/2025 - Duplicação da planilha, renomeada para 'Clients_Follow_UP_MIB' com aba 'ALLDATA'", completed: true },
-                    { text: "17/06/2025 - Atualização de fluxos no Zapier para os novos nomes", completed: true },
-                    { text: "17/06/2025 - Testes validados para envios de e-mails nas abas 'Client VIP' e 'Black List'", completed: true },
-                    { text: "17/06/2025 - Configuração do Zapier finalizada", completed: true }
-                ]
-            },
-            {
-                title: "Pendente",
-                items: [
-                    { text: "Validar a origem do Webhook no Zapier (confirmar se vem do Booknetic)", completed: false },
-                    { text: "Confirmar o papel exato do AppSheet no fluxo (se é apenas painel de consulta ou possui outras funções)", completed: false },
-                    { text: "Realizar acesso ao AppSheet (pendente por autenticação em dois fatores)", completed: false },
-                    { text: "Implementar ajustes finais no fluxo, caso surjam após a validação do AppSheet e Webhook", completed: false },
-                    { text: "Documentar o fluxo completo para o cliente", completed: false }
-                ]
-            }
-        ]
-    },
-    step4: {
-        title: "⏳ Etapa 4: Testes - Pendente",
-        sections: [
-            {
-                title: "Tarefas Pendentes",
-                items: [
-                    { text: "Realizar testes integrados com todas as ferramentas (Zapier, Google Sheets, AppSheet, Booknetic)", completed: false },
-                    { text: "Validar notificações e alertas do Zapier", completed: false }
+                    { text: "19/06/2025 - Realizar testes integrados com todas as ferramentas (Zapier, Google Sheets, AppSheet, Booknetic)", completed: false },
+                    { text: "19/06/2025 - Validar notificações e alertas do Zapier", completed: false }
                 ]
             }
         ]
