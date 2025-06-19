@@ -39,7 +39,7 @@ const stepData = {
                 { text: "17/06/2025 - Atualização de fluxos no Zapier para os novos nomes", completed: true },
                 { text: "17/06/2025 - Testes validados para envios de e-mails nas abas 'Client VIP' e 'Black List'", completed: true },
                 { text: "17/06/2025 - Configuração do Zapier finalizada", completed: true },
-                { text: "19/06/2025 -Validar a origem do Webhook no Zapier (confirmado)", completed: true },
+                { text: "19/06/2025 - Validar a origem do Webhook no Zapier (confirmado)", completed: true },
                 { text: "19/06/2025 - Confirmar o papel do AppSheet (painel validado)", completed: true },
                 { text: "19/06/2025 - Realizar acesso ao AppSheet (acesso concluído)", completed: true },
                 { text: "19/06/2025 - Implementar ajustes finais no fluxo", completed: true },
