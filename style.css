@@ -1,631 +1,107 @@
-
-/* Variáveis de Cores */
-:root {
-    --petrol-blue: #2C3E50; /* Azul Petróleo */
-    --white: #FFFFFF;
-    --light-gray: #ECF0F1; /* Cinza claro para fundos */
-    --dark-gray: #BDC3C7; /* Cinza para textos secundários */
-    --green-accent: #2ECC71; /* Verde para detalhes de sucesso */
-    --yellow-accent: #F39C12; /* Amarelo para em andamento */
-    --red-accent: #E74C3C; /* Vermelho para pendente/atenção */
-}
-
-/* Reset Básico e Tipografia */
-* {
+body {
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: #f6f7fa;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: var(--petrol-blue);
-    background-color: var(--light-gray);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1, h2, h3 {
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--petrol-blue);
-}
-
-h1 {
-    font-size: 2.8em;
-    text-align: center;
-    color: var(--white);
-}
-
-h2 {
-    font-size: 2.2em;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-h3 {
-    font-size: 1.5em;
-}
-
-p {
-    margin-bottom: 10px;
-}
-
-/* Cabeçalho (Hero Section) */
-.hero {
-    background-color: var(--petrol-blue);
-    color: var(--white);
-    padding: 80px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(44, 62, 80, 0.9), rgba(46, 204, 113, 0.3));
-    z-index: 1;
-}
-
-.hero .container {
-    position: relative;
-    z-index: 2;
-}
-
-.slogan {
-    font-size: 1.4em;
-    font-weight: 300;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    color: var(--dark-gray);
-}
-
-/* Seções Gerais */
-section {
-    padding: 60px 0;
-    background-color: var(--white);
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-section:nth-of-type(even) {
-    background-color: var(--light-gray);
-}
-
-/* Barra de Progresso */
-.progress-section {
-    text-align: center;
-}
-
-.progress-bar-container {
-    width: 80%;
-    max-width: 800px;
-    background-color: var(--dark-gray);
-    border-radius: 50px;
-    height: 40px;
-    margin: 0 auto;
-    overflow: hidden;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.progress-bar {
-    height: 100%;
-    background: linear-gradient(to right, var(--green-accent), #27AE60);
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 20px;
-    color: var(--white);
-    font-weight: 600;
-    font-size: 1.2em;
-    transition: width 2s ease-out; /* Animação suave mais lenta */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
-
-.progress-bar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-.progress-text {
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    position: relative;
-    z-index: 1;
-}
-
-/* Seção de Etapas do Projeto */
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.step-card {
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-bottom: 5px solid transparent;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.step-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.step-card.expanded {
-    transform: scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.step-card i {
-    font-size: 3em;
-    margin-bottom: 15px;
-    color: var(--dark-gray);
-}
-
-.step-card h3 {
-    margin-bottom: 10px;
-    font-size: 1.3em;
-}
-
-.step-card .status {
-    display: inline-block;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9em;
-    color: var(--white);
-}
-
-/* Cores dos Status */
-.step-card.completed { border-color: var(--green-accent); }
-.step-card.completed i { color: var(--green-accent); }
-.step-card.completed .status { background-color: var(--green-accent); }
-
-.step-card.in-progress { border-color: var(--yellow-accent); }
-.step-card.in-progress i { color: var(--yellow-accent); }
-.step-card.in-progress .status { background-color: var(--yellow-accent); }
-
-.step-card.pending { border-color: var(--red-accent); }
-.step-card.pending i { color: var(--red-accent); }
-.step-card.pending .status { background-color: var(--red-accent); }
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease-out;
-}
-
-.modal-content {
-    background-color: var(--white);
-    margin: 5% auto;
-    padding: 0;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 800px;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.modal-header {
-    background-color: var(--petrol-blue);
-    color: var(--white);
-    padding: 20px 30px;
-    border-radius: 15px 15px 0 0;
+header {
+    background: #0874ce;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #fff;
 }
 
-.modal-header h2 {
-    margin: 0;
-    font-size: 1.5em;
-}
-
-.close {
-    color: var(--white);
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.close:hover {
-    color: var(--green-accent);
-}
-
-.modal-body {
-    padding: 30px;
-}
-
-.expandable-section {
-    margin-bottom: 20px;
-    border: 1px solid var(--light-gray);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.section-header {
-    background-color: var(--light-gray);
-    padding: 15px 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-}
-
-.section-header:hover {
-    background-color: var(--dark-gray);
-}
-
-.section-header h3 {
-    margin: 0;
-    font-size: 1.2em;
-    color: var(--petrol-blue);
-}
-
-.section-toggle {
-    font-size: 1.2em;
-    color: var(--petrol-blue);
-    transition: transform 0.3s ease;
-}
-
-.section-toggle.expanded {
-    transform: rotate(180deg);
-}
-
-.section-content {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.section-content.expanded {
-    max-height: 1000px;
-    padding: 20px;
-}
-
-/* Detalhes das Etapas (Checklist) - Atualizado para Modal */
-.step-details {
-    margin-top: 0;
-    text-align: left;
-}
-
-.step-details h4 {
-    color: var(--petrol-blue);
-    margin-bottom: 20px;
-    font-size: 1.3em;
-    text-align: center;
-}
-
-.step-details h5 {
-    color: var(--petrol-blue);
-    margin-bottom: 10px;
-    margin-top: 15px;
-    font-size: 1em;
-    font-weight: 600;
-}
-
-.checklist-section {
-    margin-bottom: 20px;
-}
-
-.checklist {
+nav ul {
     list-style: none;
-}
-
-.checklist-item {
     display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.2s ease;
-    background-color: rgba(255, 255, 255, 0.5);
+    gap: 15px;
 }
 
-.checklist-item:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.checklist-item i {
-    margin-right: 12px;
-    font-size: 1.2em;
-    width: 20px;
-}
-
-.checklist-item.completed i {
-    color: var(--green-accent);
-}
-
-.checklist-item.pending i {
-    color: var(--yellow-accent);
-}
-
-.checklist-item span {
-    font-size: 0.95em;
-    line-height: 1.4;
-}
-
-/* Área de Atualizações */
-.updates-feed {
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-}
-
-.update-item {
-    border-bottom: 1px solid var(--light-gray);
-    padding: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: slideInLeft 0.5s ease-out forwards;
-}
-
-.update-item:nth-child(1) { animation-delay: 0.1s; }
-.update-item:nth-child(2) { animation-delay: 0.2s; }
-.update-item:nth-child(3) { animation-delay: 0.3s; }
-.update-item:nth-child(4) { animation-delay: 0.4s; }
-.update-item:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes slideInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.update-item:last-child {
-    border-bottom: none;
-}
-
-.update-date {
-    font-weight: 600;
-    color: var(--petrol-blue);
-    flex-basis: 120px;
-    flex-shrink: 0;
-}
-
-.update-description {
-    flex-grow: 1;
-    margin: 0;
-    color: #333;
-}
-
-.update-status {
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.8em;
-    font-weight: 600;
-    color: var(--white);
-    text-transform: uppercase;
-}
-
-.update-status.completed { background-color: var(--green-accent); }
-.update-status.pending { background-color: var(--red-accent); }
-.update-status.in-progress { background-color: var(--yellow-accent); }
-
-/* Seção de FAQ */
-.faq-item {
-    background-color: var(--white);
-    border: 1px solid var(--light-gray);
-    border-radius: 8px;
-    margin-bottom: 15px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
-}
-
-.faq-item:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.faq-item h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: var(--petrol-blue);
-    font-size: 1.2em;
-}
-
-.faq-item p {
-    color: #555;
-    margin-bottom: 0;
-}
-
-/* Rodapé */
-footer {
-    background-color: var(--petrol-blue);
-    color: var(--white);
+#hero {
+    background: #1e5a79;
+    color: #fff;
+    padding: 50px 20px;
     text-align: center;
-    padding: 40px 0;
-    margin-top: 30px;
-    border-radius: 10px;
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
 }
 
-footer p {
-    margin-bottom: 15px;
-    font-size: 0.9em;
-    color: var(--dark-gray);
+.button {
+    background-color: #22b47b;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
-.social-links a {
-    color: var(--white);
-    font-size: 1.5em;
-    margin: 0 10px;
-    transition: color 0.3s ease, transform 0.3s ease;
+.button:hover {
+    background-color: #1a954a;
 }
 
-.social-links a:hover {
-    color: var(--green-accent);
-    transform: translateY(-3px);
+#servicos {
+    background: #fff;
+    padding: 50px 20px;
 }
 
-/* Animações de entrada */
-.animate-in {
-    animation: fadeInUp 0.6s ease-out;
+.card {
+    background: #e6f4ff;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.card:hover {
+    transform: scale(1.05);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1.8em;
-    }
-
-    .slogan {
-        font-size: 1.2em;
-    }
-
-    .progress-bar-container {
-        width: 95%;
-        height: 35px;
-    }
-
-    .progress-bar {
-        font-size: 1em;
-        padding-right: 15px;
-    }
-
-    .steps-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .step-card {
-        padding: 25px;
-    }
-
-    .update-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .update-date {
-        margin-bottom: 5px;
-    }
-
-    .step-details {
-        padding: 15px;
-    }
-
-    .checklist-item {
-        padding: 6px;
-    }
+#contato {
+    background: #f0fafb;
+    padding: 50px 20px;
+    text-align: center;
 }
 
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.6em;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-
-    .slogan {
-        font-size: 1em;
-    }
-
-    .progress-bar-container {
-        height: 30px;
-    }
-
-    .progress-bar {
-        font-size: 0.9em;
-        padding-right: 10px;
-    }
-
-    .step-card h3 {
-        font-size: 1.1em;
-    }
-
-    .update-status {
-        font-size: 0.7em;
-    }
-
-    .step-details h4 {
-        font-size: 1em;
-    }
-
-    .checklist-item span {
-        font-size: 0.8em;
-    }
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
 }
 
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #0874ce;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #065aa8;
+}
+
+footer {
+    background: #0874ce;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+}
